@@ -41,7 +41,7 @@ def upload():
         new_model = load_model('AlexNetModel.hdf5')
 
         new_model.summary()
-        test_image = image.load_img('images\\'+filename,target_size=(224,224))
+        test_image = image.load_img(destination,target_size=(224,224))
         test_image = image.img_to_array(test_image)
         test_image = np.expand_dims(test_image, axis = 0)
         test_image = test_image/255
