@@ -6,15 +6,19 @@ from flask import Flask, request, render_template, send_from_directory
 app = Flask(__name__)
 # app = Flask(__name__, static_folder="images")
 
+#Loading Key:Value Pair
 key_list = pickle.load(open('key_list', 'rb'))
 val_list = pickle.load(open('val_list', 'rb'))
 
+#Creating a path to upload Images
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+#Creating a path to home page
 @app.route("/")
 def index():
     return render_template("index.html")
 
+#Creating a path to Upload.
 @app.route("/upload", methods=["POST"])
 def upload():
     target = os.path.join(APP_ROOT, 'images/')
